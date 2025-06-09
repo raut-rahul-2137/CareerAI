@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
+# from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 
 # Create your views here.
