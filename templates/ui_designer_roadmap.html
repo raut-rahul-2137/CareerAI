@@ -1,0 +1,403 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Designer Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-purple-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">UI Designer Roadmap</h1>
+                <p class="text-xl text-gray-600">Master visual design, user interfaces, and create beautiful digital experiences</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner – Foundations of UI Design</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Role Understanding</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• UI vs UX Design</li>
+                            <li>• Design Lifecycle</li>
+                            <li>• Design Principles</li>
+                            <li>• Visual Hierarchy</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Design Fundamentals</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Color Theory</li>
+                            <li>• Typography</li>
+                            <li>• Grid Systems</li>
+                            <li>• White Space</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Tools</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Figma/Adobe XD</li>
+                            <li>• Design Shapes</li>
+                            <li>• Auto-layout</li>
+                            <li>• Components</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Projects</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Login Screens</li>
+                            <li>• Mobile App Pages</li>
+                            <li>• Form Designs</li>
+                            <li>• Splash Screens</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Intermediate -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Intermediate – UI Patterns & Responsive Design</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">UI Patterns</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Forms & Buttons</li>
+                            <li>• Cards & Lists</li>
+                            <li>• Modals & Menus</li>
+                            <li>• Navigation Patterns</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsive Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Grid Systems</li>
+                            <li>• Breakpoints</li>
+                            <li>• Auto Layout</li>
+                            <li>• Device Scaling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Component Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Button States</li>
+                            <li>• Form Elements</li>
+                            <li>• Interactive Components</li>
+                            <li>• UI Systems</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Design Systems</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Style Guides</li>
+                            <li>• Atomic Design</li>
+                            <li>• Color Systems</li>
+                            <li>• Typography Sets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Advanced – Prototyping & Collaboration</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Prototyping</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Interactive Prototypes</li>
+                            <li>• Smart Animate</li>
+                            <li>• Microinteractions</li>
+                            <li>• User Flows</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Developer Handoff</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Design Specs</li>
+                            <li>• Asset Export</li>
+                            <li>• Zeplin/Figma Inspect</li>
+                            <li>• Documentation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Accessibility</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Color Contrast</li>
+                            <li>• Keyboard Navigation</li>
+                            <li>• Screen Readers</li>
+                            <li>• WCAG Guidelines</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Platform Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• iOS Guidelines</li>
+                            <li>• Material Design</li>
+                            <li>• Web Standards</li>
+                            <li>• Cross-platform UI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Expert -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Expert – Design Thinking & Portfolio</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Brand Identity</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Brand Guidelines</li>
+                            <li>• Visual Identity</li>
+                            <li>• Design Systems</li>
+                            <li>• Brand Consistency</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Design Thinking</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• User Research</li>
+                            <li>• Problem Solving</li>
+                            <li>• Iterative Design</li>
+                            <li>• User Testing</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Case Studies</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Process Documentation</li>
+                            <li>• Problem Analysis</li>
+                            <li>• Solution Design</li>
+                            <li>• Results & Impact</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Portfolio Building</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Personal Website</li>
+                            <li>• Dribbble/Behance</li>
+                            <li>• Client Projects</li>
+                            <li>• Freelancing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Tools</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Figma/Adobe XD</li>
+                            <li>• InVision/Marvel</li>
+                            <li>• Zeplin/Avocode</li>
+                            <li>• FigJam/Miro</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Certifications</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Google UX Design</li>
+                            <li>• Dribbble Certified</li>
+                            <li>• IDF Courses</li>
+                            <li>• Figma Masterclass</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Resources</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Design Communities</li>
+                            <li>• UI Libraries</li>
+                            <li>• Icon Sets</li>
+                            <li>• Color Tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahullive@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

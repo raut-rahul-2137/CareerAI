@@ -1,0 +1,427 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Analyst Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Cybersecurity Analyst Roadmap</h1>
+                <p class="text-xl text-gray-600">Master cybersecurity and protect organizations from digital threats</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner – Core IT & Security Fundamentals</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic IT Skills</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Operating Systems: Windows, Linux</li>
+                            <li>• Command Line (Linux Terminal & PowerShell)</li>
+                            <li>• Networking Basics (OSI Model, TCP/IP)</li>
+                            <li>• Ports & Protocols</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cybersecurity Fundamentals</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• CIA Triad</li>
+                            <li>• Threats vs Vulnerabilities</li>
+                            <li>• Malware Types</li>
+                            <li>• Social Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Essential Tools</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Wireshark</li>
+                            <li>• Nmap</li>
+                            <li>• VirusTotal</li>
+                            <li>• VirtualBox / VMware</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Labs & Projects</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Kali Linux Setup</li>
+                            <li>• Network Traffic Analysis</li>
+                            <li>• Phishing Simulation</li>
+                            <li>• Basic Security Testing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Beginner Certifications</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">CompTIA ITF+</span>
+                        <span class="tool-badge">CompTIA A+</span>
+                        <span class="tool-badge">Google Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Intermediate -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Intermediate – Security Operations & Monitoring</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Security Tools & Techniques</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• SIEM (Splunk, QRadar)</li>
+                            <li>• Endpoint Protection</li>
+                            <li>• IDS/IPS (Snort, Suricata)</li>
+                            <li>• Log Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Threat Analysis</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• MITRE ATT&CK Framework</li>
+                            <li>• Cyber Kill Chain</li>
+                            <li>• Threat Intelligence</li>
+                            <li>• IOCs Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Incident Response</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• IR Process & Procedures</li>
+                            <li>• Log Analysis</li>
+                            <li>• Report Writing</li>
+                            <li>• Containment Strategies</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Vulnerability Management</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Nessus, OpenVAS</li>
+                            <li>• Patch Management</li>
+                            <li>• CVSS Scoring</li>
+                            <li>• Risk Assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Intermediate Certifications</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">CompTIA Security+</span>
+                        <span class="tool-badge">Cisco CyberOps</span>
+                        <span class="tool-badge">CEH</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Advanced – Threat Hunting, Forensics & Automation</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Threat Hunting</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• EDR Tools (CrowdStrike)</li>
+                            <li>• Sigma & YARA Rules</li>
+                            <li>• Hypothesis-driven Detection</li>
+                            <li>• Advanced Threat Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Digital Forensics</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Memory Analysis</li>
+                            <li>• Disk Imaging</li>
+                            <li>• Mobile Forensics</li>
+                            <li>• Evidence Collection</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Security Automation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Python Scripting</li>
+                            <li>• SOAR Platforms</li>
+                            <li>• API Integration</li>
+                            <li>• Workflow Automation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Attack Simulation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Red Team Basics</li>
+                            <li>• MITRE Caldera</li>
+                            <li>• Purple Team Exercises</li>
+                            <li>• Attack Path Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Advanced Certifications</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">CompTIA CySA+</span>
+                        <span class="tool-badge">SANS GIAC</span>
+                        <span class="tool-badge">OSCP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Expert -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Expert – SOC Leadership, Compliance & Specialization</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Security Governance</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• NIST, ISO 27001</li>
+                            <li>• GDPR, HIPAA, PCI-DSS</li>
+                            <li>• Risk Assessment</li>
+                            <li>• Business Continuity</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">SOC Operations</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Tier 1-3 Operations</li>
+                            <li>• Threat Intelligence</li>
+                            <li>• Malware Analysis</li>
+                            <li>• Team Leadership</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cloud Security</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS/Azure/GCP Security</li>
+                            <li>• Cloud Incident Response</li>
+                            <li>• IAM & Access Control</li>
+                            <li>• Cloud Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Specializations</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Malware Analysis</li>
+                            <li>• Digital Forensics</li>
+                            <li>• Threat Intelligence</li>
+                            <li>• Cloud Security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Platforms</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• TryHackMe</li>
+                            <li>• Hack The Box</li>
+                            <li>• CyberDefenders</li>
+                            <li>• Blue Team Labs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Books</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Web Application Hacker's Handbook</li>
+                            <li>• Practical Malware Analysis</li>
+                            <li>• Blue Team Field Manual</li>
+                            <li>• The Art of Deception</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Communities</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• OWASP</li>
+                            <li>• SANS</li>
+                            <li>• Reddit r/netsec</li>
+                            <li>• Discord Communities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

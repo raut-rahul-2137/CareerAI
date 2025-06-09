@@ -1,0 +1,26 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('features/', views.features, name='features'),
+    path('roadmap/', views.roadmap, name='roadmap'),
+    path('roadmap/software-engineer/', views.software_engineer_roadmap, name='software_engineer_roadmap'),
+    path('roadmap/data-science/', views.data_science_roadmap, name='data_science_roadmap'),
+    path('roadmap/ux-designer/', views.ux_designer_roadmap, name='ux_designer_roadmap'),
+    path('roadmap/product-manager/', views.product_manager_roadmap, name='product_manager_roadmap'),
+    path('roadmap/devops-engineer/', views.devops_engineer_roadmap, name='devops_engineer_roadmap'),
+    path('roadmap/machine-learning-engineer/', views.machine_learning_engineer_roadmap, name='machine_learning_engineer_roadmap'),
+    path('roadmap/full-stack-developer/', views.full_stack_developer_roadmap, name='full_stack_developer_roadmap'),
+    path('roadmap/cloud-architect/', views.cloud_architect_roadmap, name='cloud_architect_roadmap'),
+    path('roadmap/cybersecurity-analyst/', views.cybersecurity_analyst_roadmap, name='cybersecurity_analyst_roadmap'),
+    path('roadmap/ai-engineer/', views.ai_engineer_roadmap, name='ai_engineer_roadmap'),
+    path('roadmap/mobile-developer/', views.mobile_developer_roadmap, name='mobile_developer_roadmap'),
+    path('roadmap/data-engineer/', views.data_engineer_roadmap, name='data_engineer_roadmap'),
+    path('roadmap/business-analyst/', views.business_analyst_roadmap, name='business_analyst_roadmap'),
+    path('roadmap/ui-designer/', views.ui_designer_roadmap, name='ui_designer_roadmap'),
+    path('roadmap/qa-engineer/', views.qa_engineer_roadmap, name='qa_engineer_roadmap'),
+    path('roadmap/system-administrator/', views.system_administrator_roadmap, name='system_administrator_roadmap'),
+    path('assessment/', views.assessment, name='assessment'),
+] 

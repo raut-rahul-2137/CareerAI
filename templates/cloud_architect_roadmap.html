@@ -1,0 +1,447 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Architect Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Cloud Architect Roadmap</h1>
+                <p class="text-xl text-gray-600">Master cloud architecture and design scalable, secure cloud solutions</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner (Foundations of Cloud & Networking)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Core Concepts</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Cloud Computing Basics</li>
+                            <li>• IaaS, PaaS, SaaS Models</li>
+                            <li>• Public vs Private vs Hybrid Cloud</li>
+                            <li>• Virtualization vs Containerization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Networking</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• OSI Model, IP Addressing</li>
+                            <li>• Subnets, CIDR, DNS, DHCP</li>
+                            <li>• Firewalls, Load Balancers</li>
+                            <li>• HTTP, HTTPS, TCP/IP, VPN</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Linux & OS Basics</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Linux CLI, Bash Scripting</li>
+                            <li>• File Permissions</li>
+                            <li>• Process Management</li>
+                            <li>• Package Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cloud Platforms</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS (EC2, S3)</li>
+                            <li>• Azure (VM, Blob)</li>
+                            <li>• GCP (Compute Engine)</li>
+                            <li>• Basic Cloud Setup</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Beginner Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">AWS CLI</span>
+                        <span class="tool-badge">Azure CLI</span>
+                        <span class="tool-badge">GCP CLI</span>
+                        <span class="tool-badge">Linux</span>
+                        <span class="tool-badge">Bash</span>
+                        <span class="tool-badge">SSH</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Intermediate -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Intermediate (Real Cloud Infrastructure)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Compute & Storage</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• EC2, EBS, S3, Lambda</li>
+                            <li>• Azure VMs, Functions</li>
+                            <li>• GCP Compute Engine</li>
+                            <li>• Storage Solutions</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Networking & Security</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• VPC, Subnets, Route Tables</li>
+                            <li>• IAM, Roles, Policies</li>
+                            <li>• Security Groups</li>
+                            <li>• Multi-Factor Auth</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Databases</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS RDS, DynamoDB</li>
+                            <li>• Azure SQL, Cosmos DB</li>
+                            <li>• GCP BigQuery</li>
+                            <li>• Database Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Infrastructure as Code</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Terraform</li>
+                            <li>• CloudFormation</li>
+                            <li>• ARM Templates</li>
+                            <li>• CI/CD Basics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Intermediate Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Terraform</span>
+                        <span class="tool-badge">CloudFormation</span>
+                        <span class="tool-badge">Docker</span>
+                        <span class="tool-badge">Kubernetes</span>
+                        <span class="tool-badge">Jenkins</span>
+                        <span class="tool-badge">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Advanced (Multi-Cloud, DevOps, Security)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">DevOps & Automation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• CI/CD Pipelines</li>
+                            <li>• Docker & Kubernetes</li>
+                            <li>• Helm, ArgoCD</li>
+                            <li>• Jenkins Integration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Serverless Architecture</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS Lambda</li>
+                            <li>• Azure Functions</li>
+                            <li>• GCP Cloud Functions</li>
+                            <li>• API Gateway</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Monitoring & Security</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• CloudWatch, Monitor</li>
+                            <li>• ELK Stack</li>
+                            <li>• Prometheus + Grafana</li>
+                            <li>• Security Best Practices</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cost Management</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Cost Explorer</li>
+                            <li>• Budget Management</li>
+                            <li>• Resource Optimization</li>
+                            <li>• Cost Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Advanced Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Kubernetes</span>
+                        <span class="tool-badge">Helm</span>
+                        <span class="tool-badge">Prometheus</span>
+                        <span class="tool-badge">Grafana</span>
+                        <span class="tool-badge">ELK Stack</span>
+                        <span class="tool-badge">Istio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Expert -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Expert (Enterprise Architecture & Leadership)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Multi-Cloud Strategy</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Cloud Agnostic Design</li>
+                            <li>• Disaster Recovery</li>
+                            <li>• API Gateways</li>
+                            <li>• Microservices Mesh</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Architecture Patterns</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Event-driven Architecture</li>
+                            <li>• Microservices</li>
+                            <li>• CQRS, Saga Pattern</li>
+                            <li>• Zero Trust Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Leadership Skills</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Project Leadership</li>
+                            <li>• Cost Modeling</li>
+                            <li>• Team Collaboration</li>
+                            <li>• Stakeholder Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Certifications</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS Solutions Architect</li>
+                            <li>• Azure Solutions Architect</li>
+                            <li>• GCP Cloud Architect</li>
+                            <li>• Terraform Associate</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Expert Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Istio</span>
+                        <span class="tool-badge">Envoy</span>
+                        <span class="tool-badge">Spinnaker</span>
+                        <span class="tool-badge">ArgoCD</span>
+                        <span class="tool-badge">FluxCD</span>
+                        <span class="tool-badge">Vault</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Courses</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS Certified Solutions Architect</li>
+                            <li>• Azure Solutions Architect Expert</li>
+                            <li>• GCP Professional Cloud Architect</li>
+                            <li>• Terraform Associate</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Books</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Cloud Architecture Patterns</li>
+                            <li>• Designing Distributed Systems</li>
+                            <li>• Cloud Native Patterns</li>
+                            <li>• Site Reliability Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Communities</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS Community</li>
+                            <li>• Azure Community</li>
+                            <li>• GCP Community</li>
+                            <li>• Cloud Native Foundation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahullive@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

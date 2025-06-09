@@ -1,0 +1,506 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Developer Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Full Stack Developer Roadmap</h1>
+                <p class="text-xl text-gray-600">Master both frontend and backend development with our comprehensive guide</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner (Core Web Fundamentals)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">HTML, CSS, JavaScript</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• HTML5 (forms, semantic tags)</li>
+                            <li>• CSS3 (Flexbox, Grid, Media Queries)</li>
+                            <li>• JavaScript (DOM, ES6+, functions)</li>
+                            <li>• Basic Web Concepts</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsive Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Mobile-first design</li>
+                            <li>• Media Queries</li>
+                            <li>• Bootstrap / Tailwind CSS</li>
+                            <li>• Responsive layouts</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Version Control</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Git basics</li>
+                            <li>• GitHub workflow</li>
+                            <li>• Branches & PRs</li>
+                            <li>• Collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Projects</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Portfolio website</li>
+                            <li>• To-Do App</li>
+                            <li>• Calculator</li>
+                            <li>• Weather App</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Beginner Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">HTML5</span>
+                        <span class="tool-badge">CSS3</span>
+                        <span class="tool-badge">JavaScript</span>
+                        <span class="tool-badge">Git</span>
+                        <span class="tool-badge">GitHub</span>
+                        <span class="tool-badge">VS Code</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Frontend -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Frontend (Interactive & Modern UI)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced JavaScript</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Closures & Promises</li>
+                            <li>• Async/Await</li>
+                            <li>• Event Loop</li>
+                            <li>• Error Handling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Frontend Frameworks</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• React.js</li>
+                            <li>• Vue.js / Angular</li>
+                            <li>• State Management</li>
+                            <li>• Component Lifecycle</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">UI Libraries & Styling</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Tailwind CSS</li>
+                            <li>• Material UI</li>
+                            <li>• Styled Components</li>
+                            <li>• CSS Modules</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Frontend Tooling</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• npm/yarn</li>
+                            <li>• Webpack/Vite</li>
+                            <li>• Babel</li>
+                            <li>• ESLint/Prettier</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Frontend Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">React</span>
+                        <span class="tool-badge">Redux</span>
+                        <span class="tool-badge">Tailwind</span>
+                        <span class="tool-badge">Webpack</span>
+                        <span class="tool-badge">TypeScript</span>
+                        <span class="tool-badge">Jest</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Backend -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Backend (Server, DB & API)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Node.js & Express</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• HTTP server</li>
+                            <li>• REST APIs</li>
+                            <li>• Middleware</li>
+                            <li>• Authentication</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Databases</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• MongoDB</li>
+                            <li>• PostgreSQL</li>
+                            <li>• CRUD operations</li>
+                            <li>• Data modeling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Authentication</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• JWT</li>
+                            <li>• OAuth2</li>
+                            <li>• bcrypt</li>
+                            <li>• Session management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">API Design</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• RESTful principles</li>
+                            <li>• Error handling</li>
+                            <li>• Status codes</li>
+                            <li>• API documentation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Backend Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Node.js</span>
+                        <span class="tool-badge">Express</span>
+                        <span class="tool-badge">MongoDB</span>
+                        <span class="tool-badge">PostgreSQL</span>
+                        <span class="tool-badge">JWT</span>
+                        <span class="tool-badge">Swagger</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Full Stack Integration -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-yellow-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Full Stack Integration</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Frontend-Backend Integration</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• API integration</li>
+                            <li>• State management</li>
+                            <li>• Error handling</li>
+                            <li>• Data flow</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Full Stack Frameworks</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Next.js</li>
+                            <li>• Nuxt.js</li>
+                            <li>• SSR</li>
+                            <li>• Static Generation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">DevOps Basics</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Deployment</li>
+                            <li>• Environment setup</li>
+                            <li>• CI/CD basics</li>
+                            <li>• Monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Project Ideas</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Blog with CMS</li>
+                            <li>• E-commerce site</li>
+                            <li>• Chat application</li>
+                            <li>• Social platform</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Integration Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Next.js</span>
+                        <span class="tool-badge">Axios</span>
+                        <span class="tool-badge">Socket.io</span>
+                        <span class="tool-badge">Vercel</span>
+                        <span class="tool-badge">Heroku</span>
+                        <span class="tool-badge">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 5: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">5️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 5: Advanced (Production & Scaling)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced Database</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Data modeling</li>
+                            <li>• Performance tuning</li>
+                            <li>• Scaling strategies</li>
+                            <li>• Caching</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Testing</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Unit testing</li>
+                            <li>• Integration testing</li>
+                            <li>• E2E testing</li>
+                            <li>• Test automation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Security</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• XSS prevention</li>
+                            <li>• CSRF protection</li>
+                            <li>• Rate limiting</li>
+                            <li>• Security headers</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Performance</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Load balancing</li>
+                            <li>• CDN setup</li>
+                            <li>• Caching strategies</li>
+                            <li>• Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Advanced Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">GraphQL</span>
+                        <span class="tool-badge">Redis</span>
+                        <span class="tool-badge">Docker</span>
+                        <span class="tool-badge">Kubernetes</span>
+                        <span class="tool-badge">AWS</span>
+                        <span class="tool-badge">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Courses</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Full Stack Open</li>
+                            <li>• The Odin Project</li>
+                            <li>• freeCodeCamp</li>
+                            <li>• Udemy Courses</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Books</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Eloquent JavaScript</li>
+                            <li>• Clean Code</li>
+                            <li>• Design Patterns</li>
+                            <li>• System Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Communities</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Stack Overflow</li>
+                            <li>• Dev.to</li>
+                            <li>• GitHub</li>
+                            <li>• Discord</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        .skill-level {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .skill-level.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Software Engineer Roadmap</h1>
+                <p class="text-xl text-gray-600">Your comprehensive guide to becoming a successful software engineer</p>
+            </div>
+
+            <!-- Skill Levels -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Foundational Skills -->
+                <div class="skill-level bg-white rounded-xl shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <span class="text-2xl">🧱</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Foundational Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Programming Basics</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Variables, Data Types, Loops</li>
+                                <li>• Functions and Recursion</li>
+                                <li>• Arrays and Strings</li>
+                                <li>• Debugging and Code Tracing</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Languages</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Python</li>
+                                <li>• C/C++</li>
+                                <li>• Java or JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Version Control</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Git Basics</li>
+                                <li>• GitHub/GitLab</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intermediate Skills -->
+                <div class="skill-level bg-white rounded-xl shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <span class="text-2xl">🚀</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Intermediate Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">OOP & Design</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Classes and Objects</li>
+                                <li>• SOLID Principles</li>
+                                <li>• Design Patterns</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Web Development</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• HTML, CSS, JavaScript</li>
+                                <li>• React.js, Vue.js</li>
+                                <li>• Node.js, Express.js</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Databases</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• SQL & NoSQL</li>
+                                <li>• Database Design</li>
+                                <li>• Query Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Skills -->
+                <div class="skill-level bg-white rounded-xl shadow-lg p-6 transform transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <span class="text-2xl">🧠</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Advanced Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">System Design</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Microservices</li>
+                                <li>• Scalable Architecture</li>
+                                <li>• Cloud Services</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">DevOps</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Docker & Kubernetes</li>
+                                <li>• CI/CD Pipelines</li>
+                                <li>• Cloud Platforms</li>
+                            </ul>
+                        </div>
+                        <div class="skill-card bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-medium text-gray-900 mb-2">Security</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Authentication</li>
+                                <li>• Encryption</li>
+                                <li>• Secure Coding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Path -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Path</h2>
+                <div class="relative">
+                    <!-- Timeline -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-200"></div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="space-y-12">
+                        <!-- Month 1-3 -->
+                        <div class="relative flex items-center">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-indigo-600 rounded-full"></div>
+                            <div class="w-1/2 pr-12 text-right">
+                                <h3 class="text-xl font-semibold text-gray-900">Months 1-3</h3>
+                                <p class="text-gray-600">Master programming fundamentals and basic data structures</p>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <ul class="text-gray-600 space-y-2">
+                                        <li>• Learn Python/Java basics</li>
+                                        <li>• Study data structures</li>
+                                        <li>• Practice on LeetCode</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Month 4-6 -->
+                        <div class="relative flex items-center">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-indigo-600 rounded-full"></div>
+                            <div class="w-1/2 pr-12 text-right">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <ul class="text-gray-600 space-y-2">
+                                        <li>• Learn web development</li>
+                                        <li>• Build small projects</li>
+                                        <li>• Study databases</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <h3 class="text-xl font-semibold text-gray-900">Months 4-6</h3>
+                                <p class="text-gray-600">Focus on web development and database management</p>
+                            </div>
+                        </div>
+
+                        <!-- Month 7-9 -->
+                        <div class="relative flex items-center">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-indigo-600 rounded-full"></div>
+                            <div class="w-1/2 pr-12 text-right">
+                                <h3 class="text-xl font-semibold text-gray-900">Months 7-9</h3>
+                                <p class="text-gray-600">Advanced concepts and system design</p>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <ul class="text-gray-600 space-y-2">
+                                        <li>• Study system design</li>
+                                        <li>• Learn cloud services</li>
+                                        <li>• Practice DevOps</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Online Courses</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Coursera</li>
+                            <li>• Udemy</li>
+                            <li>• edX</li>
+                            <li>• freeCodeCamp</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Practice Platforms</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• LeetCode</li>
+                            <li>• HackerRank</li>
+                            <li>• CodeWars</li>
+                            <li>• Project Euler</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Documentation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• MDN Web Docs</li>
+                            <li>• Official Docs</li>
+                            <li>• GitHub</li>
+                            <li>• Stack Overflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill levels on scroll
+            const skillLevels = document.querySelectorAll('.skill-level');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            skillLevels.forEach(level => {
+                observer.observe(level);
+            });
+        });
+    </script>
+</body>
+</html> 

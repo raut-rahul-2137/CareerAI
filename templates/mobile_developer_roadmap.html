@@ -1,0 +1,403 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Developer Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Mobile Developer Roadmap</h1>
+                <p class="text-xl text-gray-600">Build amazing mobile experiences for iOS and Android</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner – Core Programming & Mobile Basics</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Platform Selection</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Android: Java/Kotlin</li>
+                            <li>• iOS: Swift</li>
+                            <li>• Cross-platform: Flutter/React Native</li>
+                            <li>• Development Environment Setup</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Programming Fundamentals</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Variables & Data Types</li>
+                            <li>• Control Structures</li>
+                            <li>• OOP Concepts</li>
+                            <li>• Git & Version Control</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Development Tools</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Android Studio</li>
+                            <li>• Xcode</li>
+                            <li>• VS Code</li>
+                            <li>• Terminal & CLI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic Projects</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Hello World App</li>
+                            <li>• Simple Calculator</li>
+                            <li>• Todo List</li>
+                            <li>• Weather App</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Core Development -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Core Mobile App Development</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">UI Design & Layouts</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• XML Layouts (Android)</li>
+                            <li>• SwiftUI (iOS)</li>
+                            <li>• Flutter Widgets</li>
+                            <li>• Material Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Navigation & Interaction</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Activity/Fragment (Android)</li>
+                            <li>• ViewController (iOS)</li>
+                            <li>• Navigation Patterns</li>
+                            <li>• User Input Handling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">State Management</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Redux/Context API</li>
+                            <li>• Provider/Riverpod</li>
+                            <li>• Bloc/GetX</li>
+                            <li>• MVVM Pattern</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Storage</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• SharedPreferences</li>
+                            <li>• SQLite/Room</li>
+                            <li>• CoreData</li>
+                            <li>• Local Storage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Intermediate -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Intermediate – APIs & Device Features</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">API Integration</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• RESTful APIs</li>
+                            <li>• JSON Parsing</li>
+                            <li>• HTTP Libraries</li>
+                            <li>• API Authentication</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Device Features</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Camera & Gallery</li>
+                            <li>• Location Services</li>
+                            <li>• Push Notifications</li>
+                            <li>• Sensors & Hardware</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced UI/UX</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Custom Animations</li>
+                            <li>• Responsive Design</li>
+                            <li>• Dark/Light Themes</li>
+                            <li>• Accessibility</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Testing</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Unit Testing</li>
+                            <li>• UI Testing</li>
+                            <li>• Integration Testing</li>
+                            <li>• Performance Testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Advanced – Architecture & Deployment</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">App Architecture</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Clean Architecture</li>
+                            <li>• MVVM/MVP</li>
+                            <li>• Dependency Injection</li>
+                            <li>• Modular Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">CI/CD & Automation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• GitHub Actions</li>
+                            <li>• Fastlane</li>
+                            <li>• Firebase Distribution</li>
+                            <li>• Automated Testing</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cloud Integration</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Firebase Services</li>
+                            <li>• AWS Amplify</li>
+                            <li>• Azure Services</li>
+                            <li>• Backend Integration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">App Store Deployment</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Play Store</li>
+                            <li>• App Store</li>
+                            <li>• Beta Testing</li>
+                            <li>• App Signing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Courses</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Android Developer Certification</li>
+                            <li>• iOS App Development</li>
+                            <li>• Flutter Development</li>
+                            <li>• React Native Masterclass</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Books</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Android Programming</li>
+                            <li>• iOS App Development</li>
+                            <li>• Flutter in Action</li>
+                            <li>• React Native Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Communities</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Stack Overflow</li>
+                            <li>• GitHub</li>
+                            <li>• Reddit r/androiddev</li>
+                            <li>• iOS Developer Forum</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

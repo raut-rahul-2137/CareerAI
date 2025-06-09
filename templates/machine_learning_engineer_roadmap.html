@@ -1,0 +1,447 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Engineer Roadmap - Your Path to Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .level-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .level-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4F46E5;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4F46E5;
+        }
+        .tool-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #E5E7EB;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+        .tool-badge:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+        .skill-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+            border-color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Home</a>
+                    <a href="{% url 'about' %}" class="{% if 'about' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">About</a>
+                    <a href="{% url 'features' %}" class="{% if 'features' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Features</a>
+                    <a href="{% url 'roadmap' %}" class="{% if 'roadmap' in request.path %}text-indigo-600 border-b-2 border-indigo-600{% else %}text-gray-700 hover:text-indigo-600{% endif %} text-sm lg:text-base font-medium transition-colors duration-200">Career Roadmap</a>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="{% if 'assessment' in request.path %}bg-indigo-700{% else %}bg-indigo-600{% endif %} text-white px-4 lg:px-6 py-2 rounded-md hover:bg-indigo-700 text-sm lg:text-base font-medium transition-all duration-200">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Machine Learning Engineer Roadmap</h1>
+                <p class="text-xl text-gray-600">Your comprehensive guide to becoming a successful ML engineer</p>
+            </div>
+
+            <!-- Phase 1: Beginner -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 1: Beginner (Core Foundations)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Mathematics & Statistics</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Linear Algebra</li>
+                            <li>• Probability & Statistics</li>
+                            <li>• Calculus</li>
+                            <li>• Optimization Basics</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Programming</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Python (NumPy, Pandas)</li>
+                            <li>• Data Structures</li>
+                            <li>• Jupyter Notebooks</li>
+                            <li>• Git & GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Handling</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Data Cleaning</li>
+                            <li>• Exploratory Analysis</li>
+                            <li>• Data Visualization</li>
+                            <li>• Feature Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Basic ML Concepts</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Supervised Learning</li>
+                            <li>• Unsupervised Learning</li>
+                            <li>• Regression & Classification</li>
+                            <li>• Clustering</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Beginner Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Python</span>
+                        <span class="tool-badge">NumPy</span>
+                        <span class="tool-badge">Pandas</span>
+                        <span class="tool-badge">Scikit-learn</span>
+                        <span class="tool-badge">Matplotlib</span>
+                        <span class="tool-badge">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Intermediate -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 2: Intermediate (Practical ML)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced ML Models</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Ensemble Learning</li>
+                            <li>• Dimensionality Reduction</li>
+                            <li>• Time Series Analysis</li>
+                            <li>• Model Evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Engineering</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• SQL & Databases</li>
+                            <li>• Data Pipelines</li>
+                            <li>• ETL Processes</li>
+                            <li>• Data Warehousing</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Model Development</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Feature Engineering</li>
+                            <li>• Model Selection</li>
+                            <li>• Hyperparameter Tuning</li>
+                            <li>• Model Validation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Practical Projects</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Kaggle Competitions</li>
+                            <li>• Real-world Datasets</li>
+                            <li>• Model Deployment</li>
+                            <li>• Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Intermediate Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">XGBoost</span>
+                        <span class="tool-badge">LightGBM</span>
+                        <span class="tool-badge">TensorFlow</span>
+                        <span class="tool-badge">PyTorch</span>
+                        <span class="tool-badge">SQL</span>
+                        <span class="tool-badge">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Advanced -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 3: Advanced (Deep Learning)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Deep Learning</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Neural Networks</li>
+                            <li>• CNNs & RNNs</li>
+                            <li>• Transfer Learning</li>
+                            <li>• Model Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">NLP & Computer Vision</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Text Processing</li>
+                            <li>• Image Recognition</li>
+                            <li>• Object Detection</li>
+                            <li>• Transformers</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">MLOps</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Model Deployment</li>
+                            <li>• CI/CD Pipelines</li>
+                            <li>• Monitoring</li>
+                            <li>• Version Control</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Cloud Platforms</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• AWS SageMaker</li>
+                            <li>• Google Cloud AI</li>
+                            <li>• Azure ML</li>
+                            <li>• Cloud Deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Advanced Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">BERT</span>
+                        <span class="tool-badge">GPT</span>
+                        <span class="tool-badge">YOLO</span>
+                        <span class="tool-badge">MLflow</span>
+                        <span class="tool-badge">Kubeflow</span>
+                        <span class="tool-badge">FastAPI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Expert -->
+            <div class="level-section bg-white rounded-xl shadow-lg p-8 mb-12">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">Phase 4: Expert (Production Systems)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced ML Systems</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Distributed Training</li>
+                            <li>• Model Serving</li>
+                            <li>• A/B Testing</li>
+                            <li>• Performance Tuning</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Research & Innovation</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Paper Reading</li>
+                            <li>• Model Architecture</li>
+                            <li>• Novel Approaches</li>
+                            <li>• Open Source</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Specialized Areas</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• GANs</li>
+                            <li>• Reinforcement Learning</li>
+                            <li>• Graph Neural Networks</li>
+                            <li>• Causal Inference</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Leadership & Strategy</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Team Management</li>
+                            <li>• Project Planning</li>
+                            <li>• Technical Strategy</li>
+                            <li>• Innovation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Expert Tools</h4>
+                    <div class="flex flex-wrap">
+                        <span class="tool-badge">Spark</span>
+                        <span class="tool-badge">Horovod</span>
+                        <span class="tool-badge">Kafka</span>
+                        <span class="tool-badge">Ray</span>
+                        <span class="tool-badge">Weights & Biases</span>
+                        <span class="tool-badge">Neptune.ai</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Learning Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Courses</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Coursera ML Specialization</li>
+                            <li>• Fast.ai</li>
+                            <li>• Stanford CS231n</li>
+                            <li>• Deep Learning Specialization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Books</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Hands-on ML</li>
+                            <li>• Deep Learning Book</li>
+                            <li>• Python for Data Analysis</li>
+                            <li>• ML Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Communities</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Kaggle</li>
+                            <li>• Papers With Code</li>
+                            <li>• ML Subreddit</li>
+                            <li>• Deep Learning Discord</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">CareerAI</h3>
+                    <p class="text-gray-400">Your AI-powered career companion for finding the perfect career path.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="{% url 'features' %}" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="{% url 'roadmap' %}" class="text-gray-400 hover:text-white">Career Roadmap</a></li>
+                        <li><a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="text-gray-400 hover:text-white">Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-center text-gray-400">&copy; 2024 CareerAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.level-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 
