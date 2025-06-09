@@ -11,12 +11,6 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .loading {
-            display: none;
-        }
-        .loading.active {
-            display: block;
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -60,70 +54,19 @@
     <div class="pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Resume Category Prediction</h1>
-                <p class="text-lg text-gray-600">Upload your resume to get career category predictions</p>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Career Assessment</h1>
+                <p class="text-lg text-gray-600">Get personalized career recommendations based on your skills and interests</p>
             </div>
 
             <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
-                <form method="post" enctype="multipart/form-data" class="space-y-6" id="resumeForm">
-                    {% csrf_token %}
-                    <div class="space-y-2">
-                        <label for="resume" class="block text-sm font-medium text-gray-700">Upload Resume</label>
-                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md" id="dropZone">
-                            <div class="space-y-1 text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <div class="flex text-sm text-gray-600">
-                                    <label for="resume" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="resume" name="resume" type="file" class="sr-only" accept=".pdf,.docx,.txt" required>
-                                    </label>
-                                    <p class="pl-1">or drag and drop</p>
-                                </div>
-                                <p class="text-xs text-gray-500">PDF, DOCX, or TXT up to 10MB</p>
-                            </div>
-                        </div>
-                        <div id="fileInfo" class="mt-2 text-sm text-gray-500 hidden"></div>
+                <div class="text-center space-y-6">
+                    <div class="text-gray-600">
+                        <p class="mb-4">Our career assessment tool is now available on Hugging Face Spaces. Click the button below to access the assessment and get personalized career recommendations.</p>
                     </div>
-
-                    <div class="flex justify-center">
-                        <button type="submit" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Analyze Resume
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Loading Indicator -->
-                <div id="loading" class="loading mt-8 text-center">
-                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-indigo-600 border-t-transparent"></div>
-                    <p class="mt-2 text-gray-600">Analyzing your resume...</p>
+                    <a href="https://huggingface.co/spaces/Rahul-Rawat/system" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Start Assessment
+                    </a>
                 </div>
-
-                {% if prediction %}
-                <div class="mt-8 p-6 bg-gray-50 rounded-lg">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2">Prediction Result</h3>
-                    <p class="text-2xl font-bold text-indigo-600">{{ prediction }}</p>
-                </div>
-                {% endif %}
-
-                {% if debug_info %}
-                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
-                    <h3 class="text-sm font-medium text-blue-900 mb-2">Debug Information</h3>
-                    <ul class="text-sm text-blue-700 space-y-1">
-                        <li>File Name: {{ debug_info.file_name }}</li>
-                        <li>File Size: {{ debug_info.file_size }}</li>
-                        <li>File Type: {{ debug_info.file_type }}</li>
-                    </ul>
-                </div>
-                {% endif %}
-
-                {% if error %}
-                <div class="mt-8 p-6 bg-red-50 rounded-lg">
-                    <h3 class="text-lg font-medium text-red-900 mb-2">Error</h3>
-                    <p class="text-red-600 whitespace-pre-line">{{ error }}</p>
-                </div>
-                {% endif %}
             </div>
         </div>
     </div>
@@ -148,8 +91,8 @@
                 <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
                     <ul class="space-y-2">
-                        <li class="text-gray-400">Email: info@careerai.com</li>
-                        <li class="text-gray-400">Phone: (555) 123-4567</li>
+                        <li class="text-gray-400">Email: rautrahul.t@gmail.com</li>
+                        <li class="text-gray-400">Phone: +918262950757</li>
                     </ul>
                 </div>
             </div>
@@ -162,52 +105,12 @@
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('resumeForm');
-            const fileInput = document.getElementById('resume');
-            const fileInfo = document.getElementById('fileInfo');
-            const dropZone = document.getElementById('dropZone');
-            const loading = document.getElementById('loading');
-
-            // Handle file selection
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    fileInfo.textContent = `Selected file: ${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
-                    fileInfo.classList.remove('hidden');
-                }
-            });
-
-            // Handle drag and drop
-            dropZone.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                dropZone.classList.add('border-indigo-500');
-            });
-
-            dropZone.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                dropZone.classList.remove('border-indigo-500');
-            });
-
-            dropZone.addEventListener('drop', function(e) {
-                e.preventDefault();
-                dropZone.classList.remove('border-indigo-500');
-                
-                const file = e.dataTransfer.files[0];
-                if (file) {
-                    fileInput.files = e.dataTransfer.files;
-                    fileInfo.textContent = `Selected file: ${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
-                    fileInfo.classList.remove('hidden');
-                }
-            });
-
-            // Handle form submission
-            form.addEventListener('submit', function(e) {
-                if (!fileInput.files.length) {
-                    e.preventDefault();
-                    alert('Please select a file to upload');
-                } else {
-                    loading.classList.add('active');
-                }
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu-items');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
             });
         });
     </script>
