@@ -147,3 +147,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure WhiteNoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Additional static files settings
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_ALLOW_ALL_ORIGINS = True
