@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11th & 12th Arts Stream - CareerAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .subject-card {
+            transition: all 0.3s ease;
+        }
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            transform: scale(1.02);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="{% url 'home' %}" class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-24 pb-12 bg-gradient-to-b from-purple-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                    <span class="gradient-text">11th & 12th Arts Stream</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Your complete guide to subjects, exams, and career paths in Arts & Humanities
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tabs Navigation -->
+            <div class="flex space-x-4 mb-8 overflow-x-auto pb-2">
+                <button class="tab-button px-6 py-3 rounded-lg font-medium bg-white shadow-md" data-tab="subjects">📚 Subjects</button>
+                <button class="tab-button px-6 py-3 rounded-lg font-medium bg-white shadow-md" data-tab="boards">🏫 Boards</button>
+                <button class="tab-button px-6 py-3 rounded-lg font-medium bg-white shadow-md" data-tab="exams">📝 Exams</button>
+                <button class="tab-button px-6 py-3 rounded-lg font-medium bg-white shadow-md" data-tab="careers">🎯 Careers</button>
+                <button class="tab-button px-6 py-3 rounded-lg font-medium bg-white shadow-md" data-tab="universities">🎓 Universities</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-content active" id="subjects">
+                <!-- Core Subjects -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🔹</span>
+                        Core Subjects
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">🧠</span>
+                                <h3 class="text-xl font-bold text-gray-900">Psychology</h3>
+                            </div>
+                            <p class="text-gray-600">Human behavior, mind, brain, development</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">🌍</span>
+                                <h3 class="text-xl font-bold text-gray-900">Geography</h3>
+                            </div>
+                            <p class="text-gray-600">Earth, environment, maps, resources</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">🏛️</span>
+                                <h3 class="text-xl font-bold text-gray-900">Political Science</h3>
+                            </div>
+                            <p class="text-gray-600">Indian Constitution, politics, international relations</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">📜</span>
+                                <h3 class="text-xl font-bold text-gray-900">History</h3>
+                            </div>
+                            <p class="text-gray-600">Indian and world history, revolutions, independence</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">💰</span>
+                                <h3 class="text-xl font-bold text-gray-900">Economics</h3>
+                            </div>
+                            <p class="text-gray-600">Microeconomics, macroeconomics, economic development</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional Subjects -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🔸</span>
+                        Optional Subjects
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">🎨</span>
+                                <h3 class="text-xl font-bold text-gray-900">Fine Arts</h3>
+                            </div>
+                            <p class="text-gray-600">Sketching, painting, theory of art</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">🧾</span>
+                                <h3 class="text-xl font-bold text-gray-900">Sociology</h3>
+                            </div>
+                            <p class="text-gray-600">Society, caste, religion, inequality</p>
+                        </div>
+                        <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-3">👩‍💻</span>
+                                <h3 class="text-xl font-bold text-gray-900">Computer Application</h3>
+                            </div>
+                            <p class="text-gray-600">Basics of computers, Word, Excel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="boards">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🏛️ CBSE</h3>
+                        <p class="text-gray-600">NCERT-based curriculum with comprehensive coverage of subjects</p>
+                    </div>
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">📘 State Boards</h3>
+                        <p class="text-gray-600">Maharashtra, UP, and other state-specific curricula</p>
+                    </div>
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🌐 ICSE / ISC</h3>
+                        <p class="text-gray-600">Literature-rich curriculum with emphasis on English</p>
+                    </div>
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🌍 IB / Cambridge</h3>
+                        <p class="text-gray-600">International recognition with global perspective</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="exams">
+                <div class="bg-white rounded-2xl shadow-xl p-6 slide-in">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">📝 Top Entrance Exams</h3>
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <h4 class="font-semibold text-purple-600">CUET-UG</h4>
+                            <p class="text-gray-600">BA, BA Hons - NTA (Central Univ.)</p>
+                        </div>
+                        <div class="border-b pb-4">
+                            <h4 class="font-semibold text-purple-600">CLAT</h4>
+                            <p class="text-gray-600">BA LLB (Law) - NLU Consortium</p>
+                        </div>
+                        <div class="border-b pb-4">
+                            <h4 class="font-semibold text-purple-600">NIFT/NID</h4>
+                            <p class="text-gray-600">Fashion & Design - NIFT/NID</p>
+                        </div>
+                        <div class="border-b pb-4">
+                            <h4 class="font-semibold text-purple-600">UPSC NDA</h4>
+                            <p class="text-gray-600">Army (non-tech) - UPSC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="careers">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🎯 Career Paths</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">👨‍⚖️ Law</h4>
+                                <p class="text-gray-600">Legal practice, judge, corporate law</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">📰 Journalism</h4>
+                                <p class="text-gray-600">Reporter, anchor, media, editing</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🧑‍🏫 Teaching</h4>
+                                <p class="text-gray-600">Teacher, professor, tutor</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🎬 Film & Theatre</h4>
+                                <p class="text-gray-600">Actor, director, screenwriter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🎓 Degree Courses</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🎓 BA General / Hons.</h4>
+                                <p class="text-gray-600">History, Pol Sci, Sociology, Psychology</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">⚖️ BA LLB</h4>
+                                <p class="text-gray-600">5-year integrated law</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">📰 BJMC</h4>
+                                <p class="text-gray-600">Journalism & Mass Comm</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🎨 BFA</h4>
+                                <p class="text-gray-600">Fine Arts – Drawing, Painting, Sculpture</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="universities">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">🎓 Top Universities</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🎓 Delhi University (DU)</h4>
+                                <p class="text-gray-600">Delhi</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🏛️ JNU</h4>
+                                <p class="text-gray-600">Delhi</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">📖 BHU</h4>
+                                <p class="text-gray-600">Varanasi</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">🌆 Mumbai University</h4>
+                                <p class="text-gray-600">Mumbai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 CareerAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Card hover animations
+            const cards = document.querySelectorAll('.subject-card, .section-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

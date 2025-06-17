@@ -23,4 +23,9 @@ urlpatterns = [
     path('roadmap/qa-engineer/', views.qa_engineer_roadmap, name='qa_engineer_roadmap'),
     path('roadmap/system-administrator/', views.system_administrator_roadmap, name='system_administrator_roadmap'),
     path('assessment/', views.assessment, name='assessment'),
+    path('10thstudent/', views.tenth_student, name='10thstudent'),
+    path('11and12/', views.eleventh_twelfth, name='11and12'),
+    path('exam/', views.exam, name='exam'),
+    path('commerce/', views.commerce, name='commerce'),
+    path('arts/', views.arts, name='arts'),
 ] 

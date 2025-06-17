@@ -61,4 +61,19 @@ def system_administrator_roadmap(request):
     return render(request, 'system_administrator_roadmap.html')
 
 def assessment(request):
-    return render(request, 'assessment.html') 
+    return render(request, 'assessment.html')
+
+def tenth_student(request):
+    return render(request, '10thstudent.html')
+
+def eleventh_twelfth(request):
+    return render(request, '11and12.html')
+
+def exam(request):
+    return render(request, 'exam.html')
+
+def commerce(request):
+    return render(request, 'commerce.html')
+
+def arts(request):
+    return render(request, 'arts.html') 

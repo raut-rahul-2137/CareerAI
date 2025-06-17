@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrance Exams After 12th - CareerAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .exam-card {
+            transition: all 0.3s ease;
+        }
+        .exam-card:hover {
+            transform: translateY(-5px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stream-badge {
+            transition: all 0.3s ease;
+        }
+        .stream-badge:hover {
+            transform: scale(1.05);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="{% url 'home' %}" class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-24 pb-12 bg-gradient-to-b from-indigo-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                    <span class="gradient-text">Entrance Exams After 12th</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Your comprehensive guide to all entrance exams for Science, Commerce, and Arts streams
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stream Tabs -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showTab('science')" class="stream-badge px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+                    🔬 Science
+                </button>
+                <button onclick="showTab('commerce')" class="stream-badge px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors duration-200">
+                    💼 Commerce
+                </button>
+                <button onclick="showTab('arts')" class="stream-badge px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
+                    🎨 Arts
+                </button>
+                <button onclick="showTab('common')" class="stream-badge px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors duration-200">
+                    🎓 Common
+                </button>
+            </div>
+
+            <!-- Science Tab Content -->
+            <div id="science" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Engineering -->
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧑‍💻</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Engineering Entrance Exams</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-blue-600">JEE Main</h4>
+                                <p class="text-gray-600">Conducted by: NTA</p>
+                                <p class="text-gray-600">Courses: B.Tech/B.E</p>
+                                <p class="text-gray-600">Eligibility: 12th PCM</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-blue-600">JEE Advanced</h4>
+                                <p class="text-gray-600">Conducted by: IITs</p>
+                                <p class="text-gray-600">Courses: B.Tech (IIT)</p>
+                                <p class="text-gray-600">Eligibility: Top JEE Main Rankers</p>
+                            </div>
+                            <!-- Add more engineering exams -->
+                        </div>
+                    </div>
+
+                    <!-- Medical -->
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧑‍⚕️</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Medical & Allied Entrance Exams</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-green-600">NEET UG</h4>
+                                <p class="text-gray-600">Conducted by: NTA</p>
+                                <p class="text-gray-600">Courses: MBBS, BDS, BAMS, BHMS</p>
+                                <p class="text-gray-600">Eligibility: 12th PCB</p>
+                            </div>
+                            <!-- Add more medical exams -->
+                        </div>
+                    </div>
+
+                    <!-- Pure Science -->
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧪</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Pure Science / Research</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">IISER Aptitude Test</h4>
+                                <p class="text-gray-600">Conducted by: IISER</p>
+                                <p class="text-gray-600">Courses: BS-MS (Research)</p>
+                                <p class="text-gray-600">Eligibility: 12th PCM/PCB</p>
+                            </div>
+                            <!-- Add more science exams -->
+                        </div>
+                    </div>
+
+                    <!-- Defense -->
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧑‍✈️</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Defense & Government</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-red-600">NDA</h4>
+                                <p class="text-gray-600">Conducted by: UPSC</p>
+                                <p class="text-gray-600">Courses: Army, Navy, Airforce</p>
+                                <p class="text-gray-600">Eligibility: 12th PCM (for Navy/Air)</p>
+                            </div>
+                            <!-- Add more defense exams -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commerce Tab Content -->
+            <div id="commerce" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">💼</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Commerce Entrance Exams</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-green-600">CUET-UG</h4>
+                                <p class="text-gray-600">Conducted by: NTA</p>
+                                <p class="text-gray-600">Courses: B.Com, BBA, BA, BMS</p>
+                                <p class="text-gray-600">Eligibility: 12th Commerce</p>
+                            </div>
+                            <!-- Add more commerce exams -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arts Tab Content -->
+            <div id="arts" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🎨</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Arts & Humanities Entrance Exams</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-purple-600">CUET-UG</h4>
+                                <p class="text-gray-600">Conducted by: NTA</p>
+                                <p class="text-gray-600">Courses: BA, BA Hons</p>
+                                <p class="text-gray-600">Eligibility: 12th Arts</p>
+                            </div>
+                            <!-- Add more arts exams -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Tab Content -->
+            <div id="common" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="exam-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🎓</span>
+                            <h3 class="text-2xl font-bold text-gray-900">Common Entrance Exams</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">CUET-UG</h4>
+                                <p class="text-gray-600">Conducted by: NTA</p>
+                                <p class="text-gray-600">Courses: All UG Courses</p>
+                                <p class="text-gray-600">Eligibility: All Streams</p>
+                            </div>
+                            <!-- Add more common exams -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 CareerAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.exam-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

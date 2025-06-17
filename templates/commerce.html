@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11th & 12th Commerce Stream - CareerAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .subject-card {
+            transition: all 0.3s ease;
+        }
+        .subject-card:hover {
+            transform: translateY(-5px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            transform: scale(1.02);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="{% url 'home' %}" class="text-2xl md:text-3xl font-bold text-indigo-600">CareerAI</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-24 pb-12 bg-gradient-to-b from-indigo-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                    <span class="gradient-text">11th & 12th Commerce Stream</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Your complete guide to subjects, exams, and career paths in Commerce
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Core Subjects Section -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🧾</span>
+                    Core Subjects
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Accountancy -->
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">📒</span>
+                            <h3 class="text-xl font-bold text-gray-900">Accountancy</h3>
+                        </div>
+                        <p class="text-gray-600">Basics of accounting, journal entries, ledgers, trial balance, financial statements</p>
+                    </div>
+
+                    <!-- Business Studies -->
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">📊</span>
+                            <h3 class="text-xl font-bold text-gray-900">Business Studies</h3>
+                        </div>
+                        <p class="text-gray-600">Principles of management, business environment, marketing, finance, and operations</p>
+                    </div>
+
+                    <!-- Economics -->
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">📈</span>
+                            <h3 class="text-xl font-bold text-gray-900">Economics</h3>
+                        </div>
+                        <p class="text-gray-600">Microeconomics (11th), Macroeconomics (12th), Indian economy, statistics</p>
+                    </div>
+
+                    <!-- English -->
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">📘</span>
+                            <h3 class="text-xl font-bold text-gray-900">English</h3>
+                        </div>
+                        <p class="text-gray-600">Compulsory language subject</p>
+                    </div>
+
+                    <!-- Mathematics -->
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧮</span>
+                            <h3 class="text-xl font-bold text-gray-900">Mathematics</h3>
+                        </div>
+                        <p class="text-gray-600">Business math: matrices, statistics, probability, calculus, etc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Subjects Section -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🔸</span>
+                    Optional Subjects
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">💻</span>
+                            <h3 class="text-xl font-bold text-gray-900">Computer Science / IP</h3>
+                        </div>
+                    </div>
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧾</span>
+                            <h3 class="text-xl font-bold text-gray-900">Entrepreneurship</h3>
+                        </div>
+                    </div>
+                    <div class="subject-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">🧠</span>
+                            <h3 class="text-xl font-bold text-gray-900">Psychology</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Board Exam Structure -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">📆</span>
+                    Board Exam Structure
+                </h2>
+                <div class="bg-white rounded-2xl shadow-xl p-6 slide-in">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subject</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Theory</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project/Oral</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Accountancy</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">80</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">100</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Business Studies</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">80</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">100</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Economics</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">80</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">100</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Higher Education Options -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🎓</span>
+                    Higher Education Options
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Without Maths -->
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Without Maths</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">B.Com (General/Hons.)</h4>
+                                <p class="text-gray-600">Commerce, Tax, Finance</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">BBA / BMS</h4>
+                                <p class="text-gray-600">Business, Management</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">BA Economics</h4>
+                                <p class="text-gray-600">Theory-based economics</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- With Maths -->
+                    <div class="section-card bg-white rounded-2xl shadow-xl p-6 slide-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">With Maths</h3>
+                        <div class="space-y-4">
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">B.Com (Hons in Accounting/Finance)</h4>
+                                <p class="text-gray-600">Advanced commerce subjects</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">B.Sc. (Economics/Statistics)</h4>
+                                <p class="text-gray-600">Quantitative economics, data</p>
+                            </div>
+                            <div class="border-b pb-4">
+                                <h4 class="font-semibold text-indigo-600">Actuarial Science</h4>
+                                <p class="text-gray-600">Risk & insurance, high-paying</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 CareerAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.subject-card, .section-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
